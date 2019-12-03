@@ -70,9 +70,9 @@ jobs:
           git clone https://github.com/rosywrt/luci-theme-rosy.git
           git clone https://github.com/rosywrt/luci-theme-purple.git
           git clone https://github.com/nutbolt/luci-theme-bootstrap.git
-          git clone https://github.com/KFERMercer/luci-app-serverchan.git
-          git clone https://github.com/Ameykyl/luci-app-koolproxyR.git
           git clone https://github.com/honwen/luci-app-aliddns.git
+          git clone https://github.com/Ameykyl/luci-app-koolproxyR.git
+          git clone https://github.com/KFERMercer/luci-app-serverchan.git
 
       - name: Update feeds
         run: |
@@ -161,9 +161,13 @@ jobs:
 
           # 常用LuCI插件选择:
           cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-app-accesscontrol=y
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
           CONFIG_PACKAGE_luci-app-netdata=y
           CONFIG_PACKAGE_luci-app-softethervpn=y
+          CONFIG_PACKAGE_luci-app-ipsec-vpnd=y
+          CONFIG_PACKAGE_luci-app-openvpn=y
+          CONFIG_PACKAGE_luci-app-openvpn-server=y
           CONFIG_PACKAGE_luci-app-koolproxyR=y
           CONFIG_PACKAGE_luci-app-aliddns=y
           CONFIG_PACKAGE_luci-app-serverchan=y
@@ -182,8 +186,6 @@ jobs:
           # CONFIG_PACKAGE_luci-app-hd-idle=y
           # CONFIG_PACKAGE_luci-app-kodexplorer=y
           # CONFIG_PACKAGE_luci-app-minidlna=y
-          # CONFIG_PACKAGE_luci-app-openvpn=y
-          # CONFIG_PACKAGE_luci-app-openvpn-server=y
           # CONFIG_PACKAGE_luci-app-qbittorrent=y
           # CONFIG_PACKAGE_luci-app-ttyd=y
           # CONFIG_PACKAGE_luci-app-v2ray-server=y
@@ -192,6 +194,7 @@ jobs:
 
           # LuCI主题:
           cat >> .config <<EOF
+          CONFIG_PACKAGE_luci-theme-base=y
           CONFIG_PACKAGE_luci-theme-rosy=y
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-purple=y
