@@ -65,6 +65,8 @@ jobs:
           cd package
           mkdir openwrt-packages
           cd openwrt-packages
+          git config --global user.name "neikvon"
+          git config --global user.email "neikvon@hotmail.com"
           git clone https://github.com/rosywrt/luci-theme-rosy.git
           git clone https://github.com/rosywrt/luci-theme-purple.git
           git clone https://github.com/nutbolt/luci-theme-bootstrap.git
