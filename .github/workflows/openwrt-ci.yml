@@ -69,7 +69,6 @@ jobs:
           cd openwrt-packages
           git clone https://github.com/rosywrt/luci-theme-rosy.git
           git clone https://github.com/rosywrt/luci-theme-purple.git
-          git clone https://github.com/nutbolt/luci-theme-bootstrap.git
           git clone https://github.com/honwen/luci-app-aliddns.git
           git clone https://github.com/Ameykyl/luci-app-koolproxyR.git
           git clone https://github.com/KFERMercer/luci-app-serverchan.git
@@ -198,7 +197,6 @@ jobs:
           CONFIG_PACKAGE_luci-theme-rosy=y
           CONFIG_PACKAGE_luci-theme-argon=y
           CONFIG_PACKAGE_luci-theme-purple=y
-          CONFIG_PACKAGE_luci-theme-bootstrap=y
           EOF
 
           # 常用软件包:
