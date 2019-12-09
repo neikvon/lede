@@ -74,6 +74,8 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Custom configure file
+        env:
+          DIY_SH: 'diy.sh'
         run: |
           rm -f ./.config*
           touch ./.config
@@ -148,7 +150,9 @@ jobs:
           # 
           # ========================固件定制部分结束========================
           # 
-
+          
+          chmod +x $DIY_SH
+          ./$DIY_SH
           sed -i 's/^[ \t]*//g' ./.config
           make defconfig
 
