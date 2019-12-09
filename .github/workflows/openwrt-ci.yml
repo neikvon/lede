@@ -54,6 +54,18 @@ jobs:
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
 
+      - name: Set git identity
+        run : |
+          git config --global user.email "neikvon@gmail.com"
+          git config --global user.name "neikvon"
+
+      - name: AddsOn
+        run: |
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
+          git clone https://github.com/happyzhang1995/luci-app-adguardhome.git
+
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
@@ -105,9 +117,9 @@ jobs:
           EOF
 
           # 编译UEFI固件:
-          cat >> .config <<EOF
-          CONFIG_EFI_IMAGES=y
-          EOF
+          #cat >> .config <<EOF
+          #CONFIG_EFI_IMAGES=y
+          #EOF
 
           # IPv6支持:
           cat >> .config <<EOF
@@ -138,6 +150,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           CONFIG_PACKAGE_luci-app-wireguard=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
+          CONFIG_PACKAGE_luci-app-adguardhome=y
           EOF
 
           # LuCI主题:
